@@ -4,7 +4,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install psycopg2==2.9.10
+# RUN pip install psycopg2
+RUN pip install psycopg2-binary==2.9.10
 RUN pip install -r requirements.txt
 
 ENV PYTHONUNBUFFERED=1

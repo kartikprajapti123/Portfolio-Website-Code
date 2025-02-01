@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% block title %}
+
+{% endblock title %}
+{% block style %}
+<style>
+</style>
+{% endblock style %}
+{% block body %}     
+	  <!--End Header -->
+
+	<!--Start sidebar -->    
+	<div class="niwaxofcanvas offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample">
+	  <div class="offcanvas-body">
+		<div class="cbtn animation">
+		  <div class="btnclose"> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+		</div>
+		<div class="form-block sidebarform">
+		  <h4>Request A Quote</h4>
+		  <form id="contactForm" data-bs-toggle="validator" class="shake mt20">
+			<div class="row">
+			  <div class="form-group col-sm-12">
+				<input type="text"  id="name" placeholder="Enter name" required data-error="Please fill Out">
+				<div class="help-block with-errors"></div>
+			  </div>
+			  <div class="form-group col-sm-12">
+				<input type="email"  id="email" placeholder="Enter email" required>
+				<div class="help-block with-errors"></div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="form-group col-sm-12">
+				<input type="text" id="mobile" placeholder="Enter mobile" required data-error="Please fill Out">
+				<div class="help-block with-errors"></div>
+			  </div>
+			  <div class="form-group col-sm-12">
+				<select name="Dtype" id="Dtype" required>
+				  <option value="">Select Requirement</option>
+				  <option value="web">web</option>
+				  <option value="graphic">graphic</option>
+				  <option value="video">video</option>
+				</select>
+				<div class="help-block with-errors"></div>
+			  </div>
+			</div>
+			<div class="form-group">
+			  <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+			  <div class="help-block with-errors"></div>
+			</div>
+			<button type="submit" id="form-submit" class="btn lnk btn-main bg-btn">Submit <span class="circle"></span></button>
+			<div id="msgSubmit" class="h3 text-center hidden"></div>
+			<div class="clearfix"></div>
+		  </form>
+		</div>
+		<div class="getintouchblock mt30">
+		  <h4>Get In Touch</h4>
+		  <p class="mt10">Please fill out the form below if you have a plan or project in mind that you'd like to share with us.</p>
+		  <div class="media mt15">
+			<div class="icondive"><img src="/static/images/icons/call.svg" alt="icon"></div>
+			<div class="media-body getintouchinfo">
+			  <a href="tel:123456790">+91-123 4567 890 <span>Mon-Fri 9am - 6pm</span></a>
+			</div>
+		  </div>
+		  <div class="media mt15">
+			<div class="icondive"><img src="/static/images/icons/whatsapp.svg" alt="icon"></div>
+			<div class="media-body getintouchinfo">
+			  <a href="tel:123456790">+91-123 4567 890 <span>Mon-Fri 9am - 6pm</span></a>
+			</div>
+		  </div>
+		  <div class="media mt15">
+			<div class="icondive"><img src="/static/images/icons/mail.svg" alt="icon"></div>
+			<div class="media-body getintouchinfo">
+			  <a href="mailto:info@website.com">info@website.com <span>Online Support</span></a>
+			</div>
+		  </div>
+		  <div class="media mt15">
+			<div class="icondive"><img src="/static/images/icons/map.svg" alt="icon"></div>
+			<div class="media-body getintouchinfo">
+			  <a href="mailto:info@website.com">Jaipur, Rajasthan, India<span>Visit Our Office</span></a>
+			</div>
+		  </div>
+		</div>
+		<div class="contact-data mt30">
+		  <h4>Follow Us On:</h4>
+		  <div class="social-media-linkz mt10">
+			<a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
+			<a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
+			<a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
+			<a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
+			<a href="javascript:void(0)" target="blank"><i class="fab fa-youtube"></i></a>
+			<a href="javascript:void(0)" target="blank"><i class="fab fa-pinterest-p"></i></a>             			  
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!--end sidebar -->
+  <!--Breadcrumb Area-->
+  <section class="breadcrumb-area banner-3">
+    <div class="text-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 v-center">
+            <div class="bread-inner">
+              <div class="bread-menu">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="portfolio.html">Portfolio</a></li>
+                  <li><a href="#">Portfolio Details</a></li>
+                </ul>
+              </div>
+              <div class="bread-title">
+                <h2>Our Portfolio</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--End Breadcrumb Area-->
+  <!--Start Portfolio-->
+  <section class="portfolio-page pad-tb">
+    <div class="container">
+      <div class="row justify-content-left">
+        <div class="col-lg-7">
+          <div class="common-heading pp p-details">
+            <span id="project_name">Branding Creative</span>
+            <h1 id="project_title">Justo Erat Tempor Eros Adipiscing</h1>
+            <p id="project_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus, risus sit amet auctor sodales, justo erat tempor eros.</p>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="portfolio-details">
+            <div class="portfolio-meta link-hover">
+              <ul>
+                <li>
+                  <i class="fas fa-user"></i>
+                  <p>Client Name: <span id="project_client_name">Creative Tom</span></p>
+                </li>
+                <li>
+                  <i class="fas fa-tags"></i>
+                  <p>Project Category: <span id="project_category">Web design, Developments</span></p>
+                </li>
+                <li>
+                  <i class="fas fa-calendar-alt"></i>
+                  <p>Project Date: <span id="project_created_at">20 May 2020</span></p>
+                </li>
+                <li><a href="#" target="_blank" id="project_external_link">Open External Link</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 single-card-item">
+          <div class="isotope_item pv-">
+            <div class="item-image">
+              <img id="project_image" src="/static/images/portfolio/project-view-1.jpg" alt="project name" class="img-fluid"/>
+             </div>
+            </div>
+    <div class="isotope_item pv- mt30">
+            <div class="item-image">
+        <video id="project_video" src="/static/images/portfolio/project-view-2.jpg" alt="project name" class="img-fluid"  controls style="width: inherit;"></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--End Portfolio-->
+  
+ <!--Start Footer-->
+{% endblock body%}
+{% block script %}
+  <script>
+	const path = window.location.pathname;
+
+const parts = path.split('/');
+
+const encodedValue = parts[parts.length - 2];
+
+const decodedValue = decodeURIComponent(encodedValue);
+
+const project_name=document.getElementById("project_name")
+const project_title=document.getElementById("project_title")
+const project_description=document.getElementById("project_description")
+const project_client_name=document.getElementById("project_client_name")
+const project_category=document.getElementById("project_category")
+const project_created_at=document.getElementById("project_created_at")
+const project_image=document.getElementById("project_image")
+const project_video=document.getElementById("project_video")
+
+
+
+function fetch_project_detail(){
+
+ fetch(`${window.location.origin}/api/project/project_by_username/?project_name=${decodedValue}`,{
+	"method":"GET",
+	"headers":{
+		"Authorization":`Bearer ${authenticated}`
+	},
+
+ }).then((Response)=>{
+	return Response.json()
+ }).then((Response)=>{
+	if (Response.data){
+		project_name.innerHTML=Response.data.project_name
+		project_title.innerHTML=Response.data.project_title
+		project_description.innerHTML=Response.data.project_description
+		project_client_name.innerHTML=Response.data.client_name
+		project_category.innerHTML=Response.data.project_category
+		project_created_at.innerHTML=Response.data.created_at
+		project_image.src=Response.data.project_image
+		project_video.src=Response.data.project_video
+		project_video.poster=Response.data.project_thumbnail
+		if (Response.data.external_link == "nothing") {
+			// Set the link to an empty placeholder
+			document.getElementById("project_external_link").src = "#";
+			document.getElementById("project_external_link").target = "";
+		
+			// Set the onclick function to show the alert when the link is clicked
+			document.getElementById("project_external_link").onclick = function() {
+				alert("I am not allowed to provide this because the client wants their own pricing value.");
+			};
+		
+		} else {
+			// Set the link to the external link and open it in a new tab
+			document.getElementById("project_external_link").target = "_blank";
+			document.getElementById("project_external_link").src = Response.data.external_link;
+		}
+
+	}
+	else{
+		let errorMessage =
+              "No project Found with this project_name";
+            message_image.src = "/static/images/remove.png";
+            message_topic.innerHTML = "Error";
+            message_topic.style.color = "red";
+            message.innerHTML = errorMessage;
+            main_message.style.display = "flex";
+	}
+ })
+}
+fetch_project_detail()
+
+  </script>
+{% endblock script %}

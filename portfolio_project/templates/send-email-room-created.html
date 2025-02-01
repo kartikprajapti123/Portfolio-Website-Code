@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Video Call Room Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            background-color: #0073e6;
+            color: #ffffff;
+            padding: 10px 0;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .content p {
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #777;
+        }
+        .footer a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #0073e6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>New Video Call Room Created</h1>
+        </div>
+        <div class="content">
+            <p>Dear Kartik,</p>
+            <p>A new video call room has been created. Here are the details:</p>
+            <p><strong>Details:</strong></p>
+            <ul>
+                <li><strong>Created By:</strong> {{ created_by }}</li>
+                <li><strong>Room ID:</strong> {{ uuid }}</li>
+                <li><strong>Message:</strong> {{ message }}</li>
+                <li><strong>Requirements:</strong> {{ requirements }}</li>
+            </ul>
+            <p>You can access the video call room by clicking the button below:</p>
+            <p>
+                <a href="{{ room_link }}" class="btn">Go to Room</a>
+            </p>
+        </div>
+        <div class="footer">
+            <p>If you have any questions, feel free to <a href="mailto:contact@example.com">contact us</a>.</p>
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

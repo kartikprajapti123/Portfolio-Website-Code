@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="utf-8" />
+  <title>
+    {% block title %}
+
+    {% endblock title %}
+  </title>
+  <meta name="description" content="Creative Agency, Marketing Agency Template">
+  <meta name="keywords" content="Creative Agency, Marketing Agency">
+  <meta name="author" content="rajesh-doot">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffd6d6">
+  <!--website-favicon-->
+  <link href="/static/images/website_logo_hd_black.png" rel="icon">
+  <!--plugin-css-->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/plugin.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <!-- template-style-->
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link href="/static/css/responsive.css" rel="stylesheet">
+  <link href="/static/css/darkmode.css" rel="stylesheet">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  {% block link %}
+
+  {% endblock link %}
+  {% block style %}
+
+  {% endblock style %}
+</head>
+
+<body>
+  <!--Start Preloader -->
+  <div id="main_message"
+    style="display:none;justify-content: flex-start;flex-direction: column;background: white;position: fixed;top: 100px;box-shadow: 0px 0px 10px 0px grey;width: auto;z-index: 100000000;;padding: 10px;padding-right: 0px;border-radius: 15px;">
+
+    <div id="message_top" style="display: flex;align-items: center;width:100%;">
+
+      <img src="/static/images/checked.png" id="message_image" alt="" style="    width: 40px;height: 40px;margin: 5px;">
+
+      <div id="message_topic" style="font-size: 30px;color: green;margin: 5px;font-weight: 600;margin-right:35px;">Chat
+        image</div>
+
+      <div style="float: right;width:100%;">
+        <img src="/static/images/close.png" id="message_close" alt="" style="      width: 25px;
+    margin-top: -32px;
+    margin-right: 6px;
+    float: right;">
+      </div>
+
+    </div>
+    <div id="message" style="color: black;font-size: larger;padding: 10px;text-align:justify">
+      Email alreday registered
+    </div>
+  </div>
+
+  <div class="onloadpage" id="page_loader">
+    <div class="pre-content">
+      <div class="logo-pre"><img src="/static/images/website_logo_hd_black.png" alt="Logo" class="img-fluid"  /></div>
+      <div class="pre-text- text-radius text-light text-animation bg-b">Niwax - Creative Agency & Portfolio HTML
+        Template Are 2 Seconds Away. Have Patience</div>
+    </div>
+  </div>
+  <!--End Preloader -->
+  <!--Start Header -->
+
+  <header class="nav-bg-w main-header navfix fixed-top menu-white">
+    <div class="container-fluid m-pad">
+      <div class="menu-header">
+        <div class="dsk-logo" style="display: flex;justify-content: space-evenly;align-items: center;width: 213px;">
+          <div class="navm- hidedesktop"> <a class="toggle" href="#"><span></span></a></div>
+
+          <a class="nav-brand" href="./">
+            <img src="/static/images/website_logo_hd_white.png" alt="Logo" class="mega-white-logo " style="margin-left: 10px;" />
+            <img src="/static/images/website_logo_hd_black.png" alt="Logo" class="mega-darks-logo" style="margin-left: 10px;" />
+          </a>
+        </div>
+        <div class="custom-nav" role="navigation">
+          <ul class="nav-list">
+            <li class="">
+              <a href="/" class="menu-links">Home</a>
+            </li>
+            <li class="">
+              <a href="/pricing/" class="menu-links" >Pricing</a>
+            </li>
+            <input type="hidden" id="csrf_token" value="{{ csrf_token }}">
+
+            <!-- <li class="sbmenu">
+              <a href="#" class="menu-links">Projects</a>
+              <div class="nx-dropdown menu-dorpdown">
+                <div class="sub-menu-section">
+                  <div class="sub-menu-center-block">
+                    <div class="sub-menu-column smfull">
+                      <ul class="project_all_data">
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li> -->
+            <li class=" sbmenu contact-show">
+              <a href="#" class="menu-links " >Projects</a>
+              <div class="contact-inquiry">
+                <div class="contact-info-">
+                  <div class="contct-heading" >Projects</div>
+                  <div class="inquiry-card-nn hrbg">
+                    <div class="inquiry-card-nn" >
+                      <div class="title-inq-c" >My Projects</div>
+                      <ul style="word-break:break-word;" class="project_all_data">
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- <li class="sbmenu">
+              <a href="/contact-us/" class="menu-links">Contact Us</a>
+            </li> -->
+              <!--menu right border-->
+
+            
+            
+            <li class=" sbmenu contact-show">
+              <a href="#" class="menu-links " >Contact Me</a>
+              <div class="contact-inquiry">
+                <div class="contact-info-">
+                  <div class="contct-heading">Contacts</div>
+                  <div class="inquiry-card-nn hrbg">
+                    <div class="inquiry-card-nn">
+                      <div class="title-inq-c">FOR CONTACT DEPARTMENT</div>
+                      <ul style="word-break:break-word;">
+                        <li><a href="/contact-us/">
+                          Contact Page</a></li>
+                        <li><a href="tel:9106566253"><img src="/static/images/flags/in.svg"
+                              class="flags-size"> +91-9106566253</a></li>
+                        <li><i class="fab fa-skype"></i><a href="skype:kartik prajapati?call">kartik prajapati</a></li>
+                        <li style="display: flex;"><i class="fas fa-envelope"></i><a href="mailto:contact@kartikprajapati.com" style="overflow-wrap: break-word;">
+                          contact@kartikprajapati.com
+                      </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+          <!-- mobile + desktop - sidebar menu- dark mode witch and button -->
+          <ul class="nav-list right-end-btn">
+            <li class="hidedesktop darkmodeswitch">
+              <div class="switch-wrapper"> <label class="switch" for="niwax"> <input type="checkbox" id="niwax" /> <span
+                    class="slider round"></span> </label> </div>
+            </li>
+            <li class="hidemobile"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
+                class="btn-round- btn-br bg-btn2"><i class="fas fa-phone-alt"></i></a></li>
+            
+            <li class="hidedesktop"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
+                class="btn-round- btn-br bg-btn2"><i class="fas fa-phone-alt"></i></a></li>
+            <li class="nav-item unauthenticated"> <a class="nav-link custom-btn lnk btn-main bg-btn"
+                href="/login/">Login<span class="circle"></span></a> </li>
+            <li class="nav-item dropdown authenticated"
+              style="display: flex; justify-content: center; align-items: center; background: #ff81a1; border-radius: 45px; padding: 0px; margin-left: 10px;">
+              <a class="nav-link " href="#" id="UserProfileDropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                 style="display: flex; align-items: center;    padding: 1px;">
+                <img src="/static/images/user-profile.png"
+                  style="width: 53px; padding: 0px; margin: 0px; margin-right: 5px;">
+              </a>
+              <div class="dropdown-menu animate " aria-labelledby="UserProfileDropdown"
+                style="min-width: 200px;">
+                <!-- <a class="dropdown-item" href="/profile/">View Profile</a> -->
+                <!-- <a class="dropdown-item" href="/settings/">Settings</a> -->
+                <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" href="#" onclick="logout_api()">Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--Mobile Menu-->
+      <nav id="main-nav">
+        <ul class="first-nav">
+          <li class="">
+            <a href="/" class="menu-links">Home</a>
+          </li>
+          <li class="">
+            <a href="/pricing/" class="menu-links">Pricing</a>
+          </li>
+          <li class="sbmenu">
+            <a href="#" class="menu-links">Projects</a>
+            <div class="nx-dropdown menu-dorpdown">
+              <div class="sub-menu-section">
+                <div class="sub-menu-center-block">
+                  <div class="sub-menu-column smfull">
+                    <ul class="project_all_data">
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- <li class="sbmenu">
+            <a href="/contact-us/" class="menu-links">Contact Us</a>
+          </li> -->
+            <!--menu right border-->
+
+          
+          <li class="sbmenu rpdropdown">
+            <a href="#" class="menu-links">Explore</a>
+            <div class="nx-dropdown menu-dorpdown">
+              <div class="sub-menu-section">
+                <div class="sub-menu-center-block">
+                  <div class="sub-menu-column smfull">
+                    <ul>
+                      <li><a href="/development-process/">Development Process</a> </li>
+                      <li><a href="/service/">Service</a> </li>
+                      <li><a href="/why-me/">Why me</a> </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class=" sbmenu contact-show">
+            <a href="#" class="menu-links ">Contact Me</a>
+            <div class="contact-inquiry">
+              <div class="contact-info-">
+                <div class="contct-heading">Contacts</div>
+                <div class="inquiry-card-nn hrbg">
+                  <div class="inquiry-card-nn">
+                    <div class="title-inq-c">FOR CONTACT DEPARTMENT</div>
+                    <ul style="word-break:break-word;">
+                      <li><a href="/contact-us/">
+                        Contact Page</a></li>
+                      <li><a href="tel:9106566253"><img src="/static/images/flags/in.svg"
+                            class="flags-size"> +91-9106566253</a></li>
+                      <li><i class="fab fa-skype"></i><a href="skype:kartik prajapati?call">kartik prajapati</a></li>
+                      <li style="display: flex;"><i class="fas fa-envelope"></i><a href="mailto:contact@kartikprajapati.com" style="overflow-wrap: break-word;">
+                        contact@kartikprajapati.com
+                    </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="bottom-nav">
+          <li class="prb">
+            <a href="tel:+919106566253">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
+                <path
+                  d="M353.188,252.052c-23.51,0-46.594-3.677-68.469-10.906c-10.719-3.656-23.896-0.302-30.438,6.417l-43.177,32.594
+                c-50.073-26.729-80.917-57.563-107.281-107.26l31.635-42.052c8.219-8.208,11.167-20.198,7.635-31.448
+                c-7.26-21.99-10.948-45.063-10.948-68.583C132.146,13.823,118.323,0,101.333,0H30.813C13.823,0,0,13.823,0,30.813
+                C0,225.563,158.438,384,353.188,384c16.99,0,30.813-13.823,30.813-30.813v-70.323C384,265.875,370.177,252.052,353.188,252.052z" />
+              </svg>
+            </a>
+          </li>
+          <li class="prb">
+            <a href="mailto:contact@kartikprajapati.com">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+              </svg>
+            </a>
+          </li>
+          <li class="prb">
+            <a href="skype:kartik prajapati?call">
+              <svg enable-background="new 0 0 24 24" height="18" viewBox="0 0 24 24" width="18"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m23.309 14.547c1.738-7.81-5.104-14.905-13.139-13.543-4.362-2.707-10.17.352-10.17 5.542 0 1.207.333 2.337.912 3.311-1.615 7.828 5.283 14.821 13.311 13.366 5.675 3.001 11.946-2.984 9.086-8.676zm-7.638 4.71c-2.108.867-5.577.872-7.676-.227-2.993-1.596-3.525-5.189-.943-5.189 1.946 0 1.33 2.269 3.295 3.194.902.417 2.841.46 3.968-.3 1.113-.745 1.011-1.917.406-2.477-1.603-1.48-6.19-.892-8.287-3.483-.911-1.124-1.083-3.107.037-4.545 1.952-2.512 7.68-2.665 10.143-.768 2.274 1.76 1.66 4.096-.175 4.096-2.207 0-1.047-2.888-4.61-2.888-2.583 0-3.599 1.837-1.78 2.731 2.466 1.225 8.75.816 8.75 5.603-.005 1.992-1.226 3.477-3.128 4.253z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!--End Header -->
+
+  <!--Start sidebar -->
+  <div class="niwaxofcanvas offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample">
+    <div class="offcanvas-body">
+      <div class="cbtn animation">
+        <div class="btnclose"> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button></div>
+      </div>
+      <div class="form-block sidebarform">
+        <h4>Request A Video Call Meeting</h4>
+        <br>
+        <h6><b>Kindly:-</b> ensure that the link to the video call meeting is shared with Kartik at their contact details immediately after its creation.</h6>
+        <form id="contactForm" data-bs-toggle="validator" class="shake mt20">
+          <div class="row">
+            <div class="form-group col-sm-12">
+              <select name="Dtype" id="video_call_requirements" required>
+                <option value="">Select Requirement</option>
+                <option value="Portfolio">Portfolio Website</option>
+                <option value="Custom">Custom Website</option>
+                <option value="Ecommerce">Ecommerce Website</option>
+                <option value="Other">Other</option>
+
+              </select>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea id="video_call_message" rows="5" placeholder="Enter your message" required></textarea>
+            <div class="help-block with-errors"></div>
+          </div>
+          <button type="submit" id="submit-video-call-room" class="btn lnk btn-main bg-btn">Start A Video Call <span
+              class="circle"></span></button>
+          <div id="msgSubmit" class="h3 text-center hidden"></div>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+      <div class="getintouchblock mt30">
+        <h4>Get In Touch</h4>
+        <p class="mt10">Please fill out the form below if you have a plan or project in mind that you'd like to share
+          with us.</p>
+        <div class="media mt15">
+          <div class="icondive"><img src="/static/images/icons/call.svg" alt="icon"></div>
+          <div class="media-body getintouchinfo">
+            <a href="tel:123456790">+91-9106566253 <span></span></a>
+          </div>
+        </div>
+        <div class="media mt15">
+          <div class="icondive"><img src="/static/images/icons/whatsapp.svg" alt="icon"></div>
+          <div class="media-body getintouchinfo">
+            <a href="tel:123456790">+91-9106566253 </a>
+          </div>
+        </div>
+        <div class="media mt15">
+          <div class="icondive"><img src="/static/images/icons/mail.svg" alt="icon"></div>
+          <div class="media-body getintouchinfo">
+            <a href="mailto:info@website.com">contact@kartikprajapati.com <span>Online Support</span></a>
+          </div>
+        </div>
+        <!-- <div class="media mt15"> -->
+          <!-- <div class="icondive"><img src="/static/images/icons/map.svg" alt="icon"></div> -->
+          <!-- <div class="media-body getintouchinfo"> -->
+            <!-- <a href="mailto:contact@kartikprajapati.com">Jaipur, Rajasthan, India<span>Visit Our Office</span></a> -->
+          <!-- </div> -->
+        <!-- </div> -->
+      </div>
+      <div class="contact-data mt30">
+        <h4>Follow Me On:</h4>
+        <div class="social-media-linkz mt10">
+          <!-- <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a> -->
+          <!-- <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a> -->
+          <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
+          <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
+          <!-- <a href="javascript:void(0)" target="blank"><i class="fab fa-youtube"></i></a> -->
+          <!-- <a href="javascript:void(0)" target="blank"><i class="fab fa-pinterest-p"></i></a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end sidebar -->
+
+  <!--End Header -->
+  <!--Start Hero-->
+  {% block body %}
+
+  {% endblock body %}
+
+  <!--Start Footer-->
+  <footer class="dark-footer dg-bg--1 pt60 nshape dark-footer-1">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-4 col-sm-6 ftr-brand-pp">
+          <a class="navbar-brand mb30 mt30" href="#"> <img src="/static/images/website_logo_hd_white.png" alt="Logo" width="100" /></a>
+          <p>As a passionate freelancer, I specialize in crafting custom web and app solutions tailored to your business needs. Stay updated with my latest projects and web development insights by subscribing to my newsletter.</p>
+          <div class="ff-social-icons mt30">
+            <a href="https://www.linkedin.com/in/kartikprajapati2/" target="blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/_kartikprajapati.com_/" target="blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <h5 class="mb30 mt30">Contact Us</h5>
+          <ul class="footer-address-list ftr-details">
+            <li>
+              <span><i class="fas fa-envelope"></i></span>
+              <p>Email <span> <a href="mailto:contact@kartikprajapati.com">contact@kartikprajapati.com</a></span></p>
+            </li>
+            <li>
+              <span><i class="fas fa-phone-alt"></i></span>
+              <p>Phone <span> <a href="tel:+919106566253">+91 9106566253</a></span></p>
+            </li>
+            <li>
+              <span><i class="fas fa-map-marker-alt"></i></span>
+              <p>Address <span> 106 Narayandham Society Nikol Ahmedabad Gujarat India</span></p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-sm-6 footer-blog-">
+          <h5 class="mb30 mt30">Instagram</h5>
+          <div class="instagram-post">
+            <div class="thumb hover-scale">
+              <a href="#">
+                <img src="/static/images/portfolio/image-1.jpg" alt="instagram images" class="w-100">
+              </a>
+            </div>
+            <div class="thumb hover-scale">
+              <a href="#">
+                <img src="/static/images/portfolio/image-2.jpg" alt="instagram images" class="w-100">
+              </a>
+            </div>
+            <div class="thumb hover-scale">
+              <a href="#">
+                <img src="/static/images/portfolio/image-3.jpg" alt="instagram images" class="w-100">
+              </a>
+            </div>
+            <div class="thumb hover-scale">
+              <a href="#">
+                <img src="/static/images/portfolio/image-4.jpg" alt="instagram images" class="w-100">
+              </a>
+            </div>
+            <div class="thumb hover-scale">
+              <a href="#">
+                <img src="/static/images/portfolio/image-5.jpg" alt="instagram images" class="w-100">
+              </a>
+            </div>
+            <div class="thumb hover-scale">
+              <a href="#">
+                <img src="/static/images/portfolio/image-6.jpg" alt="instagram images" class="w-100">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row end-footer-">
+        <div class="col-lg-6">
+          <div class="footer-copyrights-">
+            <p>© 2020-2023. All Rights Reserved By <a href="https://themeforest.net/user/rajesh-doot/portfolio"
+                target="blank">Rajesh Doot</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--End Footer-->
+
+  <div class="modal leadpopup" id="leadModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="innerbody">
+            <div class="innerleft">
+              <div class="leadbtnclose"> <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+              <h3>Build Your App in just 2 Weeks</h3>
+              <p class="mt10">Leave your details and one of our experts will contact you soon</p>
+              <div class="form-block mt20">
+                <form action="#" id="quotes-form" method="post">
+                  <div class="fieldsets row">
+                    <div class="col-md-12 form-group floating-label">
+                      <input type="text" placeholder=" " required="required" class="floating-input">
+                      <label>Full Name*</label>
+                    </div>
+                    <div class="col-md-12 form-group floating-label">
+                      <input type="email" placeholder=" " required="required" class="floating-input">
+                      <label>Email Address*</label>
+                    </div>
+                  </div>
+                  <div class="fieldsets row">
+                    <div class="col-md-12 form-group floating-label">
+                      <input type="tel" placeholder=" " required="required" class="floating-input">
+                      <label>Mobile Number*</label>
+                    </div>
+                  </div>
+                  <div class="fieldsets mt20"> <button type="submit" name="submit" class="lnk btn-main bg-btn">Submit <i
+                        class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></button> </div>
+                  <p class="trm"><i class="fas fa-lock"></i>We hate spam, and we respect your privacy.</p>
+                </form>
+              </div>
+            </div>
+            <div class="innerright" data-background="/static/images/service/mockup-app.jpg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="/static/js/vendor/modernizr-3.5.0.min.js"></script>
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/plugin.min.js"></script>
+  <script src="/static/js/preloader.js"></script>
+  <script src="/static/js/dark-mode.js"></script>
+  <!--common script file-->
+  <script src="/static/js/main.js"></script>
+  <script>
+    const csrfToken = document.querySelector('#csrf_token')?.value || getCookie('csrftoken');
+    const urlParams=new URLSearchParams(window.location.search)
+    
+    let redirect_to=urlParams.get("redirect_to")
+
+    let message = document.getElementById("message")
+    let message_close = document.getElementById("message_close")
+    let message_topic = document.getElementById("message_topic")
+    let message_image = document.getElementById("message_image")
+    let message_top = document.getElementById("message_top")
+    let main_message = document.getElementById("main_message")
+
+    const authenticated = localStorage.getItem("kartik_website_access_token")
+    if (authenticated) {
+      // Show authenticated elements and hide unauthenticated ones
+      Array.from(document.getElementsByClassName("authenticated")).forEach((e) => {
+        e.style.display = "block";
+      });
+      Array.from(document.getElementsByClassName("unauthenticated")).forEach((e) => {
+        e.style.display = "none";
+      });
+    } else {
+      // Show unauthenticated elements and hide authenticated ones
+      Array.from(document.getElementsByClassName("unauthenticated")).forEach((e) => {
+        e.style.display = "block";
+      });
+      Array.from(document.getElementsByClassName("authenticated")).forEach((e) => {
+        e.style.display = "none";
+      });
+    }
+    message_close.onclick = function () {
+      main_message.style.display = "None"
+    }
+    function handleCredentialResponse(response) {
+      console.log('Encoded JWT ID token: ' + response.credential);
+
+      // Send the ID token to your Django backend
+      fetch(`${window.location.origin}/api/google-authentication/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          token: response.credential
+        })
+      })
+        .then(response => response.json())
+        .then(response => {
+          console.log(response.message);
+          console.log(response);
+          if (response.success) {
+            message_image.src = "/static/images/checked.png";
+            message_topic.style.color = "green";
+            message_topic.innerHTML = "Success";
+
+            message.innerHTML = response.message;
+            main_message.style.display = "flex";
+            localStorage.setItem("kartik_website_access_token", response.token.access_token)
+            localStorage.setItem("kartik_website_refresh_token", response.token.refresh_token)
+
+            if (redirect_to){
+              setTimeout(() => {
+                window.location.href = `/video-call/${redirect_to}/`
+              }, 2000)
+            }
+            else{
+
+
+            setTimeout(() => {
+              window.location.href = `/`
+            }, 2000)
+
+          }
+
+          } else {
+            console.log(response.message);
+
+            let errorMessage =
+              response.message || "An error occurred";
+            message_image.src = "/static/images/remove.png";
+            message_topic.innerHTML = "Error";
+            message_topic.style.color = "red";
+            message.innerHTML = errorMessage;
+            main_message.style.display = "flex";
+
+          }
+
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    console.log("done")
+    window.onload = function () {
+      console.log("done")
+
+      google.accounts.id.initialize({
+        client_id: '54695427378-eunv9tae8pi0vqjc72m0ml6cdoa2mh3b.apps.googleusercontent.com',
+        callback: handleCredentialResponse,
+      });
+
+
+      google.accounts.id.renderButton(
+        document.getElementById('googleSignInButton'),
+        { theme: 'outline', size: 'large' }
+      );
+    };
+
+    function logout_api() {
+      refresh_token = localStorage.getItem("kartik_website_refresh_token")
+      main_message.style.display = "none";
+      if (!confirm("Are you sure you want to log out?")) {
+        return; // Exit the function if the user cancels
+      }
+      if (authenticated) {
+        token = authenticated
+        data = {
+          "refresh_token": refresh_token
+        }
+        fetch(`${window.location.origin}/api/user/logout/`, {
+          "method": "POST",
+          "headers": {
+            "content-type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          "body": JSON.stringify(data)
+
+        }).then((response) => {
+          return response.json()
+        }).then((response) => {
+          if (response.success) {
+            message_image.src = "/static/images/checked.png";
+            message_topic.style.color = "green";
+            message_topic.innerHTML = "Success";
+
+            message.innerHTML = "Logout successfully done";
+            main_message.style.display = "flex";
+            localStorage.removeItem("kartik_website_access_token")
+            localStorage.removeItem("kartik_website_refresh_token")
+
+            setTimeout(() => {
+              window.location.href = "/"
+            }, 3000)
+
+          }
+          else {
+            let errorMessage =
+              response.message || "An error occurred";
+              message.innerHTML=errorMessage
+              message_image.src = "/static/images/remove.png";
+              message_topic.innerHTML = "Error";
+              message_topic.style.color = "red";
+              main_message.style.display = "flex";
+      
+          }
+
+
+        }).catch((error) => {
+          message.innerHTML = "An Error Occured Please reload";
+          
+          message_type.innerHTML = "Error";
+          message_type.style.color = "red";
+          message_icon_parent.style.color = "red";
+          message_icon_child.classList = "fas fa-times-circle";
+
+          setTimeout(() => {
+            card.style.display = "none";
+          }, 3000);
+        });
+      }
+    }
+
+    function fetch_project_all() {
+      fetch(`${window.location.origin}/api/project/?no_pagination=true`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "Authorization": `Bearer ${authenticated}`
+        }
+      }).then((response) => {
+        return response.json()
+      }).then((response) => {
+        console.log(response)
+        if (response) {
+          str = ''
+          response.data.forEach((data) => {
+            str += `<li><a href="/project-detail/${data.project_name}/">${data.project_name}</a></li>`
+          })
+          document.getElementsByClassName("project_all_data")[0].innerHTML = str
+          document.getElementsByClassName("project_all_data")[1].innerHTML = str
+
+        }
+      })
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch_project_all();
+    });
+    document.getElementById("contactForm").onsubmit=function(e){
+      e.preventDefault()
+      main_submit_buttom=document.getElementById("submit-video-call-room")
+      main_submit_buttom.disabled=true
+      data={
+        message:document.getElementById("video_call_message").value,
+        requirement:document.getElementById("video_call_requirements").value,
+      }
+      main_message.style.display = "none";
+      if (authenticated){
+
+      if (!confirm("Are you sure you want to start Video call meeting ?")) {
+      main_submit_buttom.disabled=false
+
+        return; // Exit the function if the user cancels
+      }
+      else{
+          fetch(`${window.location.origin}/api/video-call-room/`,{
+            method:"POST",
+            "headers": {
+            "content-type": "application/json",
+            "Authorization": `Bearer ${authenticated}`
+          },
+          "body": JSON.stringify(data)
+          }).then((resposne)=>{
+      main_submit_buttom.disabled=false
+
+            return resposne.json()
+          }).then((resposne)=>{
+            console.log(resposne)
+            if (resposne.success){
+              message_image.src = "/static/images/checked.png";
+            message_topic.style.color = "green";
+            message_topic.innerHTML = "Success";
+
+            message.innerHTML = "Redirecting to video-call page please wait....";
+            main_message.style.display = "flex";
+            }
+
+            setTimeout(()=>{
+              window.location.href=`/video-call/${resposne.data.uuid}/`
+            },2000)
+
+          })
+        }
+        
+      }
+      else{
+      main_submit_buttom.disabled=false
+
+        let errorMessage =
+            "Login Users allowed to create video call ! Please Login"
+          message_image.src = "/static/images/remove.png";
+          message_topic.innerHTML = "Error";
+          message_topic.style.color = "red";
+          message.innerHTML = errorMessage;
+          main_message.style.display = "flex";
+      }
+
+    }
+  </script>
+  {% block script %}
+
+  {% endblock script %}
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - .env
+    command: >
+      sh -c "
+        python manage.py makemigrations &&
+        python manage.py migrate &&
+        python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - portfolio_project_network
+    volumes:
+      - .:/app  
+      - portfolio_project_volume:/app/data
+    depends_on:
+      - db
+      - redis 
+
+  daphne:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+
+    env_file:
+      - .env
+    command: daphne -b 0.0.0.0 -p 8001 portfolio_project.asgi:application
+    networks:
+      - portfolio_project_network
+    depends_on:
+      - web
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - portfolio_project_network
+    volumes:
+      - portfolio_project_volume:/data
+    restart: always
+
+  db:
+    image: postgres:latest 
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_NAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - portfolio_project_volume:/var/lib/postgresql/data 
+    networks:
+      - portfolio_project_network
+    restart: always
+
+networks:
+  portfolio_project_network:
+    driver: bridge
+
+volumes:
+  portfolio_project_volume:

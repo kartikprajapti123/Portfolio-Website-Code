@@ -1,0 +1,17 @@
+# Ignore virtual environment
+.venv/
+venv/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore local development files
+*.log
+.git
+node_modules/
+
+# Include .env if necessary for your Docker container setup (ensure it's not ignored)
+/.env

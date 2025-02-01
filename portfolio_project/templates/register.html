@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+{% block title %}
+
+{% endblock title %}
+{% block style %}
+<style>
+  footer {
+    display: none;
+  }
+</style>
+{% endblock style %}
+{% block body %}
+<div class="container" style="margin-top:100px;" id="signup_form">
+  <section class="login-page">
+
+    <!--Start login Form-->
+
+    <div class="login-form-div" style="box-shadow: 0px 0px 10px 0px white;">
+      <h4 class="mb40 text-center">Signup! Create New Account</h4>
+      <div class="form-block">
+        <form id="contact-form">
+          <div class="fieldsets row">
+            <div class="col-md-12 form-group">
+              <input id="sign_up_username" type="text" placeholder="Username" required>
+            </div>
+            <div class="col-md-12 form-group">
+              <input id="sign_up_email" type="email" placeholder="Email Address" required>
+            </div>
+            <div class="col-md-12 form-group">
+              <input id="sign_up_password" type="password" placeholder="Create password" required>
+            </div>
+            <div class="col-md-12 form-group"><input type="password" id="sign_up_password2" placeholder="Password again"
+                required="required">
+            </div>
+          </div>
+          <div class="fieldsets row mt20" style="display: flex
+;
+    justify-content: center;">
+            <div class="col-md-6 form-group v-center">
+              <button role="submit" class="lnk btn-main bg-btn">Submit <span class="circle"></span></button>
+            </div>
+
+          </div>
+          <div class="text-center">
+            <p class="mb20">or Login with:</p>
+            <div class="social-btnnxx">
+              <!-- <li id="googleSignInButton"><a href="#"><img src="/static/img/net-icon-01.png" class="img-fluid" alt="Logo"> -->
+                <!-- Sign In using Google</a></li> -->
+              <div style="cursor: pointer;
+    width: 100%;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;" id="googleSignInButton"></div>
+            </div>
+          </div>
+          <div style="margin:20px 10px;text-align:center;">have a account ? <a href="/login/">Login</a></div>
+
+
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container" style="margin-top:100px;display:none;" id="otp_form">
+  <section class="login-page">
+
+    <!--Start login Form-->
+
+    <div class="login-form-div">
+      <h4 class="mb40 text-center">Otp Verification</h4>
+      <div class="form-block">
+        <form id="contact-form-otp">
+          <div class="fieldsets row">
+            <div class="col-md-12 form-group">
+              <input id="otp" type="number" maxlength="6" placeholder="Enter Otp" required>
+            </div>
+
+            <div class="fieldsets row mt20">
+              <div class="col-md-6 form-group v-center">
+                <button role="submit" class="lnk btn-main bg-btn">Submit <span class="circle"></span></button>
+              </div>
+            </div>
+            <div style="margin:20px 10px;text-align:center;">Don't get otp ? <span style="color:#0d6efd;cursor:pointer;"
+                id="resend_otp">Resend otp</span></div>
+            <div style="margin:20px 10px;text-align:center;">
+              <div style="color:#0d6efd;cursor:pointer;" id="backtosignup">Back to Signup</div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!--End login Form-->
+
+{% endblock body %}
+{% block script %}
+<script>
+  let sign_up_form = document.getElementById("contact-form");
+  let sign_up_username = document.getElementById("sign_up_username");
+  let sign_up_email = document.getElementById("sign_up_email");
+  let sign_up_password = document.getElementById("sign_up_password");
+  let sign_up_password2 = document.getElementById("sign_up_password2");
+
+  let mainsignup = document.getElementById("signup_form")
+  let mainotp = document.getElementById("otp_form")
+
+  let otp_form_submit = document.getElementById('contact-form-otp')
+  let otp = document.getElementById("otp")
+  sign_up_form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    main_message.style.display = "none";
+
+    // Prepare the data
+    const data = {
+      email: sign_up_email.value,
+      username: sign_up_username.value,
+      password: sign_up_password.value,
+      password2: sign_up_password2.value,
+
+    };
+
+    // Make the API call
+    await fetch(`${window.location.origin}/api/register/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": csrfToken
+
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log("response", response);
+        if (response.success === true) {
+          message_image.src = "/static/images/checked.png";
+          message_topic.style.color = "green";
+          message_topic.innerHTML = "Success";
+
+          message.innerHTML = response.message;
+          main_message.style.display = "flex";
+
+          mainsignup.style.display = "none"
+          mainotp.style.display = "block"
+
+
+        } else {
+          let errorMessage = response.message.username?.[0] ||
+            response.message.email?.[0] ||
+            response.message.password?.[0] ||
+            response.message.password2?.[0] ||
+            response.message.non_field_errors?.[0] ||
+            response.message || "An error occurred";
+          message_image.src = "/static/images/remove.png";
+          message_topic.innerHTML = "Error";
+          message_topic.style.color = "red";
+          message.innerHTML = errorMessage;
+          main_message.style.display = "flex";
+        }
+      });
+  });
+  otp_form_submit.addEventListener("submit", async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    main_message.style.display = "none";
+
+    // Prepare the data
+    const data = {
+      otp: otp.value,
+      email: sign_up_email.value,
+
+    };
+
+    // Make the API call
+    await fetch(`${window.location.origin}/api/verify-otp/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log("response", response);
+        if (response.success === true) {
+          message_image.src = "/static/images/checked.png";
+          message_topic.style.color = "green";
+          message_topic.innerHTML = "Success";
+
+          message.innerHTML = "Otp Successfully verified wait! redirecting to home page";
+          main_message.style.display = "flex";
+          localStorage.setItem("kartik_website_access_token", response.token.access_token)
+          localStorage.setItem("kartik_website_refresh_token", response.token.refresh_token)
+
+
+          mainsignup.style.display = "none"
+          mainotp.style.display = "block"
+
+          setTimeout(() => {
+            window.location.href = "/"
+          }, 2000)
+
+
+        } else {
+          let errorMessage =
+            response.message || "An error occurred";
+          message_image.src = "/static/images/remove.png";
+          message_topic.innerHTML = "Error";
+          message_topic.style.color = "red";
+          message.innerHTML = errorMessage;
+          main_message.style.display = "flex";
+        }
+      });
+  });
+
+
+  document.getElementById('resend_otp').onclick = async (e) => {
+    e.preventDefault(); // Prevent default behavior
+    main_message.style.display = "none";
+
+    // Prepare the data
+    const data = {
+      email: sign_up_email.value,
+    };
+
+    // Make the API call
+    await fetch(`${window.location.origin}/api/resend-otp/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log("response", response);
+        if (response.success === true) {
+          message_image.src = "/static/images/checked.png";
+          message_topic.style.color = "green";
+          message_topic.innerHTML = "Success";
+          message.innerHTML = response.message;
+          main_message.style.display = "flex";
+        } else {
+          let errorMessage = response.message || "An error occurred";
+          message_image.src = "/static/images/remove.png";
+          message_topic.innerHTML = "Error";
+          message_topic.style.color = "red";
+          message.innerHTML = errorMessage;
+          main_message.style.display = "flex";
+        }
+      });
+  };
+
+  document.getElementById("backtosignup").onclick = () => {
+    mainotp.style.display = "none";
+    mainsignup.style.display = "block";
+  };
+</script>
+{% endblock script %}

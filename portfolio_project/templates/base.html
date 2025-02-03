@@ -155,17 +155,21 @@
           </ul>
           <!-- mobile + desktop - sidebar menu- dark mode witch and button -->
           <ul class="nav-list right-end-btn">
-            <li class="hidedesktop darkmodeswitch">
-              <div class="switch-wrapper"> <label class="switch" for="niwax"> <input type="checkbox" id="niwax" /> <span
-                    class="slider round"></span> </label> </div>
+            <li class="hidedesktop darkmodeswitch" style="display:none !important;">
+              
+              <div class="switch-wrapper"> <label class="switch" for="niwax"> <input type="checkbox" id="niwax" />
+                <!-- <span
+                    class="slider round"></span> -->
+                  
+                  </label> </div>
             </li>
             <li class="hidemobile"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
-                class="btn-round- btn-br bg-btn2"><i class="fas fa-phone-alt"></i></a></li>
+                class="btn-round- btn-br bg-btn2" style="background: linear-gradient(to right, #ffbd84 0%, #ff1f8e 100%);"><img src="/static/images/video-camera.png/"/></a></li>
             
             <li class="hidedesktop"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
-                class="btn-round- btn-br bg-btn2"><i class="fas fa-phone-alt"></i></a></li>
+                class="btn-round- btn-br bg-btn2" style="background: linear-gradient(to right, #ffbd84 0%, #ff1f8e 100%);"><img src="/static/images/video-camera.png/"/></a></li>
             <li class="nav-item unauthenticated"> <a class="nav-link custom-btn lnk btn-main bg-btn"
-                href="/login/">Login<span class="circle"></span></a> </li>
+                href="/login/">Login<span class="circle" ></span></a> </li>
             <li class="nav-item dropdown authenticated"
               style="display: flex; justify-content: center; align-items: center; background: #ff81a1; border-radius: 45px; padding: 0px; margin-left: 10px;">
               <a class="nav-link " href="#" id="UserProfileDropdown" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -759,6 +763,35 @@
       }
 
     }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const darkModeToggle = document.getElementById("niwax");
+      const body = document.body;
+  
+      // Enable dark mode by default if no preference is set
+      //if (!localStorage.getItem("darkModeStatus")) {
+          localStorage.setItem("darkModeStatus", "true");
+      //}
+  
+      // Apply dark mode if enabled
+      //if (localStorage.getItem("darkMode") === "enabled") {
+      //    body.classList.add("dark-mode");
+      //    darkModeToggle.checked = true;
+      //}
+  //
+      //// Toggle dark mode on switch change
+      //darkModeToggle.addEventListener("change", function () {
+      //    if (this.checked) {
+      //        body.classList.add("dark-mode");
+      //        localStorage.setItem("darkMode", "enabled");
+      //    } else {
+      //        body.classList.remove("dark-mode");
+      //        localStorage.setItem("darkMode", "disabled");
+      //    }
+      //});
+  });
+  
   </script>
   {% block script %}
 

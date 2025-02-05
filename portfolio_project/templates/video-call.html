@@ -362,13 +362,13 @@
   function chat_websocket_connection() {
     let url=""
     if (window.location.hostname=="www.kartikprajapati.com"){
-      url="wss://${window.location.hostname}:8001/ws/chat/${uuid}/"
+      url=`wss://${window.location.hostname}:8001/ws/chat/${uuid}/`
     }
     else{
-      url="ws://${window.location.hostname}:8001/ws/chat/${uuid}/"
+      url=`ws://${window.location.hostname}:8001/ws/chat/${uuid}/`
 
     }
-    ws = new WebSocket(`${url}`)
+    ws = new WebSocket(url)
 
     ws.onopen = ((e) => {
       console.log("connnection made successfully")
@@ -633,13 +633,13 @@
   function websocket_connection_video_call() {
     let url=""
     if (window.location.hostname=="www.kartikprajapati.com"){
-      url="wss://${window.location.hostname}:8001/ws/video-call/${uuid}/"
+      url=`wss://${window.location.hostname}:8001/ws/video-call/${uuid}/`
     }
     else{
-      url="ws://${window.location.hostname}:8001/ws/video-call/${uuid}/"
+      url=`ws://${window.location.hostname}:8001/ws/video-call/${uuid}/`
 
     }
-    video_ws = new WebSocket(`${url}`)
+    video_ws = new WebSocket(url)
     //video_ws = new WebSocket(`ws://${window.location.hostname}:8001/ws/video-call/${uuid}/`)
 
     video_ws.onopen = function (response) {

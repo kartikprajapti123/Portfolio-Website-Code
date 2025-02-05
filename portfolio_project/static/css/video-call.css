@@ -563,7 +563,6 @@ a { text-decoration: none; }
     z-index: 2;
     width: 100%;
     display: none;
-    
     &.show {
       transform: translateX(0);
     }

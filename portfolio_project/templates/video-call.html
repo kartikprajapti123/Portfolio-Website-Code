@@ -41,9 +41,9 @@
 
 </head>
 
-<body>
+<body style="position: relative;">
 
-  <div style="display: none;margin:20px 0px 0px 20px;z-index:100000000000000;overflow:hidden;background:white;"
+  <div style="width:100%;height:100%;display: none;margin:20px 0px 0px 20px;z-index:100000000000000;overflow:hidden;background:white;"
     id="grant-permission-main" >
 
     <div id="main_message2" style="display:flex;justify-content: flex-start;flex-direction: column;
@@ -59,27 +59,21 @@
         <div id="message_topic2"
           style="font-size: 30px;color:  #6868e7;margin: 5px;font-weight: 600;margin-right:35px;">Info</div>
 
-        <div style="float: right;width:100%;">
-          <img src="/static/images/close.png" id="message_close2" alt="" style="      width: 25px;
-    margin-top: -32px;
-    margin-right: 6px;
-    float: right;">
-        </div>
 
       </div>
-      <div id="message2" style="color: black;font-size: larger;padding: 10px;text-align:justify">
+      <div id="message2" style="color: black;font-size: larger;padding: 10px;">
 
       </div>
-      <div style='padding: 10px; padding-right: 20px;'>
+      <!-- <div style='padding: 10px; padding-right: 20px;'>
         <b>Note:</b> If you wish to grant permission, please reload the page. Alternatively , click the camera icon in
         the address bar (top left corner) and manually enable the required permissions, then refresh the page.
-      </div>
+      </div> -->
 
-      <div class="chat-header" onclick="location.reload();">
-        <button class="chat-header-button" style="background-image:none;padding-left:16px;">
-          Reload
-        </button>
-      </div>
+      <!-- <div class="chat-header" onclick="location.reload();"> -->
+        <!-- <button class="chat-header-button" style="background-image:none;padding-left:16px;"> -->
+          <!-- Reload -->
+        <!-- </button> -->
+      <!-- </div> -->
     </div>
 
   </div>
@@ -166,12 +160,15 @@
 
 
       <div class="video-call-actions " style="padding-top: 0px;">
-        <button class="video-action-button " id="audioing"><img src="/static/images/mic_on.png" alt=""
-            style="width: 20px;height:20px;"></button>
-        <button class="video-action-button" id="videoing"><img src="/static/images/video_on.png" alt=""
-            style="width: 20px;height:20px;"></button>
-        <button class="video-action-button" id="shareing"><img src="/static/images/share.png" alt=""
-            style="width: 20px;height:20px;"></button>
+        <button class="video-action-button " id="audioing" style="display: flex;
+    justify-content: center;align-items:center;"><img src="/static/images/portfolio_website_mic_on.png" alt=""
+            style="width: 30px;height:30px;"></button>
+        <button class="video-action-button" id="videoing" style="display: flex;
+    justify-content: center;align-items:center;"><img src="/static/images/portfolio_website_video_on.png" alt=""
+            style="width: 30px;height:30px;"></button>
+        <button class="video-action-button" id="shareing" style="display: flex;
+    justify-content: center;align-items:center;"><img src="/static/images/share.png" alt=""
+            style="width: 30px;height:30px;"></button>
         <!-- <button class="video-action-button maximize" ></button> -->
         <button class="video-action-button endcall" id="endcall">Leave</button>
         <!-- <button class="video-action-button magnifier">
@@ -674,6 +671,10 @@
       }
     }).then((s) => {
 
+      if (s.getVideoTracks().length === 0 || s.getAudioTracks().length === 0) {
+        return false
+      }
+
       addUserVideo(user_username, user_uuid)
 
 
@@ -719,14 +720,18 @@
       call_own_video()
 
     }).catch((s) => {
-      message2.innerHTML = "To initiate the video call, we require permission to access both your 'video' and 'audio'."
+      message2.innerHTML = "We need your permission to access both your video and audio to start the meeting. Please allow access to both to join the video call. <br><b>For example:</b> 'Click on the browser permission prompt to grant access.' ";
       message_image2.src = "/static/images/info_image.png";
-
-      message_topic2.innerHTML = "Info";
+      
+      message_topic2.innerHTML = "Permission Required";
       message_topic2.style.color = "#6868e7";
+      
       main_message2.style.display = "flex";
-      grant_permission_main.style.display = "block"
-    })
+      grant_permission_main.style.display = "block";
+    
+      // Optionally, add a more specific call-to-action or instruction if needed:
+      // For example: "Click on the browser permission prompt to grant access."
+    });
 
   }
 
@@ -734,7 +739,14 @@
     if (Object.keys(rtcpeerconnection).length === 0) {
       // rtcpeerconnection is empty
       endcalling.onclick = () => {
-        window.location.href = "/"
+        check=confirm("Are you sure to leave the meeting")
+        if (check){
+          window.location.href = "/"
+
+        }
+        else{
+return 
+        }
       }
     }
     if (data.type == "video_call_join") {
@@ -765,12 +777,19 @@
         endcalling.onclick = () => {
 
             console.log('called')
-            if (rtcpeerconnection[data['user_uuid']]) {
-              endcall(data['user_uuid']);
-            }
-            else {
-              window.location.href = "/"
+            check=confirm("Are you sure to leave the meeting")
+        if (check){
+
+          if (rtcpeerconnection[data['user_uuid']]) {
+            endcall(data['user_uuid']);
           }
+          else {
+            window.location.href = "/"
+          }
+        }
+        else{
+          return
+        }
         }
         audioing.onclick = () => {
           console.log(rtcpeerconnection)
@@ -826,12 +845,20 @@
           }
           endcalling.onclick = () => {
 
+            check=confirm("Are you sure to leave the meeting")
+            if (check){
               if (rtcpeerconnection[data['user_uuid_by']]) {
                 endcall(data['user_uuid_by']);
               } else {
                 window.location.href = "/"
 
               }
+            }
+            else{
+              return
+            }
+            
+              
           }
         }
 
@@ -879,7 +906,7 @@
     else if (data['type'] == 'video_call_end_call') {
       
       if (rtcpeerconnection[data['user_uuid_by']]) {
-        message.innerHTML = `${user_username} left the meeting `
+        message.innerHTML = `${data['user_username']} left the meeting `
         message_image.src = "/static/images/info_image.png";
         message_topic.innerHTML = "Info";
         message_topic.style.color = "#6868e7";
@@ -1126,9 +1153,9 @@ function call_own_video(){
     if (audiotrack) {
       audiotrack.enabled = !audiotrack.enabled;
       if (audiotrack.enabled) {
-        audioing.innerHTML = `<img src="/static/images/mic_on.png" alt="" style="width: 20px;height:20px;">`;
+        audioing.innerHTML = `<img src="/static/images/portfolio_website_mic_on.png" alt="" style="width: 30px;height:30px;">`;
       } else {
-        audioing.innerHTML = `<img src="/static/images/mic_off.png" alt="" style="width: 20px;height:20px;">`;
+        audioing.innerHTML = `<img src="/static/images/portfolio_website_mic_off.png" alt="" style="width: 30px;height:30px;">`;
       }
 
       const sender = rtcpeerconnection.getSenders();
@@ -1167,11 +1194,11 @@ function call_own_video(){
 
       // Update button UI
        if (videoTrack.enabled) {
-            videoing.innerHTML = `<img src="/static/images/video_on.png" alt="" style="width: 20px;height:20px;">`;
+            videoing.innerHTML = `<img src="/static/images/portfolio_website_video_on.png" alt="" style="width: 30px;height:30px;">`;
             videoElement.poster = ""; // Remove poster when video is on
             videoElement.style.backgroundColor = ""; // Remove background color
         } else {
-            videoing.innerHTML = `<img src="/static/images/video_off.png" alt="" style="width: 20px;height:20px;">`;
+            videoing.innerHTML = `<img src="/static/images/portfolio_website_video_off.png" alt="" style="width: 30px;height:30px;">`;
             videoElement.poster = "/static/images/video_off_poster.webp"; // Set poster for video off
             videoElement.style.backgroundColor = "black"; // Optional fallback background
         }
@@ -1234,13 +1261,13 @@ function call_own_video(){
   }
 
 // Trigger a confirmation dialog before unloading
-window.onbeforeunload = (event) => {
-  // Display a confirmation dialog
-  const confirmationMessage = "Are you sure you want to leave this page? Your video call will be disconnected.";
-  event.preventDefault(); // Required for some browsers
-  event.returnValue = confirmationMessage; // Triggers the confirmation dialog
-  return confirmationMessage;
-};
+//window.onbeforeunload = (event) => {
+//  // Display a confirmation dialog
+//  const confirmationMessage = "Are you sure you want to leave this page? Your video call will be disconnected.";
+//  event.preventDefault(); // Required for some browsers
+//  event.returnValue = confirmationMessage; // Triggers the confirmation dialog
+//  return confirmationMessage;
+//};
 
 // Perform cleanup actions only if the user confirms leaving
 window.addEventListener("unload", () => {

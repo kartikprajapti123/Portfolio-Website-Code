@@ -3,6 +3,9 @@ from video_call.consumer import ChatConsumer,VideoCallConsumer
 from django.urls import path
 
 websocket_urlpatterns = [
-    re_path(r"^ws/chat/(?P<id>[^/]+)/$", ChatConsumer.as_asgi()),
-    re_path(r"^ws/video-call/(?P<id>[^/]+)/$", VideoCallConsumer.as_asgi()),
+    # repath(r'ws/video-call/$', ChatCounsumer.as_asgi()),
+    path("ws/chat/<str:id>/",ChatConsumer.as_asgi()),
+    path("ws/video-call/<str:id>/",VideoCallConsumer.as_asgi()),
+    
+    
 ]

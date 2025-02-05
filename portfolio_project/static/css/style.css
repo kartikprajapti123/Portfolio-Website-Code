@@ -1184,7 +1184,7 @@ background: linear-gradient(135deg, #ffdee9 0%,#c8fff4  100%);}
 .breadcrumb-area:after{
 content: ''; z-index:0;
 background: url(/static/images/banner/banner-shap-2.png);
-background-size: auto;   position: absolute;   height: 100%;   width: 100%;   background-repeat: no-repeat;
+background-size: auto;   position: absolute;   height: 100%;   width: 100%;  
 right: 0;   top: 0;   z-index: 1;   background-position: center right; background-size: contain;}
 .breadcrumb-area ul li {    display: block;    display: inline-block;}
 .breadcrumb-area .bread-menu li a {    color: #6a6a8e;    font-size: 16px;    font-weight: 400;    padding-right: 6px;  display: inline-block;}

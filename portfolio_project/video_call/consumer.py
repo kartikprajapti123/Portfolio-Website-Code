@@ -9,8 +9,6 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         self.last_key = self.scope['path'].rstrip('/').split('/')[-1]
         self.room_name = f"chat_name_{self.last_key}"
         
-        # Ensure user is authenticated
-        # Create chat room if it doesn't exist
         await self.channel_layer.group_add(self.room_name, self.channel_name)
         await self.accept()
         
@@ -20,7 +18,6 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         type = text_data_json.get("type")
         
         
-        # Create a chat message
         if type == "chat_message":
             message = text_data_json.get("message")
             user = text_data_json.get("user")

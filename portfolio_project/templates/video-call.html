@@ -360,7 +360,15 @@
   }
 
   function chat_websocket_connection() {
-    ws = new WebSocket(`ws://${window.location.hostname}:8001/ws/chat/${uuid}/`)
+    let url=""
+    if (window.location.hostname=="kartikprajapati.com"){
+      url="wss://${window.location.hostname}:8001/ws/chat/${uuid}/"
+    }
+    else{
+      url="ws://${window.location.hostname}:8001/ws/chat/${uuid}/"
+
+    }
+    ws = new WebSocket(`${url}`)
 
     ws.onopen = ((e) => {
       console.log("connnection made successfully")
@@ -623,7 +631,16 @@
 
 
   function websocket_connection_video_call() {
-    video_ws = new WebSocket(`ws://${window.location.hostname}:8001/ws/video-call/${uuid}/`)
+    let url=""
+    if (window.location.hostname=="kartikprajapati.com"){
+      url="wss://${window.location.hostname}:8001/ws/video-call/${uuid}/"
+    }
+    else{
+      url="ws://${window.location.hostname}:8001/ws/video-call/${uuid}/"
+
+    }
+    video_ws = new WebSocket(`${url}`)
+    //video_ws = new WebSocket(`ws://${window.location.hostname}:8001/ws/video-call/${uuid}/`)
 
     video_ws.onopen = function (response) {
       console.log("connection made video call")

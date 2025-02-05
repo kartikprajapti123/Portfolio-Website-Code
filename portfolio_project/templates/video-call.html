@@ -362,7 +362,7 @@
   function chat_websocket_connection() {
     let url=""
     if (window.location.hostname=="www.kartikprajapati.com"){
-      url=`wss://www.kartikprajapati.com/ws/chat/${uuid}/`
+      url=`wss://kartikprajapati.com/ws/chat/${uuid}/`
     }
     else{
       url=`ws://localhost:8001/ws/chat/${uuid}/`
@@ -633,7 +633,7 @@
   function websocket_connection_video_call() {
     let url=""
     if (window.location.hostname=="www.kartikprajapati.com"){
-      url=`wss://www.kartikprajapati.com/ws/video-call/${uuid}/`
+      url=`wss://kartikprajapati.com/ws/video-call/${uuid}/`
     }
     else{
       url=`ws://localhost:8001/ws/video-call/${uuid}/`

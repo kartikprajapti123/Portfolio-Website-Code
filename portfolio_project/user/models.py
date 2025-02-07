@@ -39,6 +39,8 @@ class User(AbstractUser):
     user_uuid=models.UUIDField(default=uuid4,null=True,blank=True)
     username = models.CharField(max_length=20,null=True)
     profile_picture=models.FileField(upload_to='user_profile_image',default="user_profile_image/user-profile.png")
+    country=models.CharField(max_length=100,default="India",null=True,blank=True)
+    phone=models.CharField(max_length=100,default="1231231231",null=True,blank=True)
     
     email = models.EmailField(unique=True)
     password=models.CharField(null=True)

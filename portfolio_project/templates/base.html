@@ -8,6 +8,23 @@
 
     {% endblock title %}
   </title>
+  <style>
+    .tooltip-inner {
+      background-color: white !important;
+      color: black !important;
+      border: 1px solid black;
+  }
+
+  .bs-tooltip-top .tooltip-arrow::before,
+  .bs-tooltip-bottom .tooltip-arrow::before,
+  .bs-tooltip-left .tooltip-arrow::before,
+  .bs-tooltip-right .tooltip-arrow::before {
+      border-top-color: white !important;
+      border-bottom-color: white !important;
+      border-left-color: white !important;
+      border-right-color: white !important;
+  }
+  </style>
   <meta name="description" content="Creative Agency, Marketing Agency Template">
   <meta name="keywords" content="Creative Agency, Marketing Agency">
   <meta name="author" content="rajesh-doot">
@@ -165,15 +182,15 @@
                   
                   </label> </div>
             </li>
-            <li class="hidemobile"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
-                class="btn-round- btn-br bg-btn2" style="background: linear-gradient(to right, #ffbd84 0%, #ff1f8e 100%);"><img src="/static/images/video-camera.png/"/></a></li>
+            <li class="hidemobile" data-bs-toggle="tooltip" title="Start Video Call"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
+                class="btn-round- btn-br bg-btn2" style="background: #dc8bdd;"><img src="/static/images/selfie.png/"/></a></li>
             
-            <li class="hidedesktop"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
-                class="btn-round- btn-br bg-btn2" style="background: linear-gradient(to right, #ffbd84 0%, #ff1f8e 100%);"><img src="/static/images/video-camera.png/"/></a></li>
+            <li class="hidedesktop" data-bs-toggle="tooltip" title="Start Video Call"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
+                class="btn-round- btn-br bg-btn2" style="background:#dc8bdd;"><img src="/static/images/selfie.png"/></a></li>
             <li class="nav-item unauthenticated"> <a class="nav-link custom-btn lnk btn-main bg-btn"
-                href="/login/">Login<span class="circle" ></span></a> </li>
+                href="/login/" style="background:#dc8bdd;" >Login<span class="circle" ></span></a> </li>
             <li class="nav-item dropdown authenticated"
-              style="display: flex; justify-content: center; align-items: center; background: #ff81a1; border-radius: 45px; padding: 0px; margin-left: 10px;">
+              style="display: flex; justify-content: center; align-items: center; background:#dc8bdd;border-radius: 45px; padding: 0px; margin-left: 10px;">
               <a class="nav-link " href="#" id="UserProfileDropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                  style="display: flex; align-items: center;    padding: 1px;">
                 <img src="/static/images/user-profile.png"
@@ -413,33 +430,33 @@
           <h5 class="mb30 mt30">Instagram</h5>
           <div class="instagram-post">
             <div class="thumb hover-scale">
-              <a href="#">
-                <img src="/static/images/portfolio/image-1.jpg" alt="instagram images" class="w-100">
+              <a href="https://www.instagram.com/p/C7J631ihGuD/?img_index=1">
+                <img src="/static/images/instagream footer 1.png" alt="instagram images" class="w-100">
               </a>
             </div>
             <div class="thumb hover-scale">
-              <a href="#">
-                <img src="/static/images/portfolio/image-2.jpg" alt="instagram images" class="w-100">
+              <a href="https://www.instagram.com/p/C7J-zKHNfA1/">
+                <img src="/static/images/instagram footer 2.png" alt="instagram images" class="w-100">
               </a>
             </div>
             <div class="thumb hover-scale">
-              <a href="#">
-                <img src="/static/images/portfolio/image-3.jpg" alt="instagram images" class="w-100">
+              <a href="https://www.instagram.com/p/C7J5q94hhfI/">
+                <img src="/static/images/instagrgeam footer 3.png" alt="instagram images" class="w-100">
               </a>
             </div>
             <div class="thumb hover-scale">
-              <a href="#">
-                <img src="/static/images/portfolio/image-4.jpg" alt="instagram images" class="w-100">
+              <a href="https://www.instagram.com/p/C7J6ikDtCgx/?img_index=2">
+                <img src="/static/images/instaram footer 4.png" alt="instagram images" class="w-100">
               </a>
             </div>
             <div class="thumb hover-scale">
-              <a href="#">
-                <img src="/static/images/portfolio/image-5.jpg" alt="instagram images" class="w-100">
+              <a href="https://www.instagram.com/p/C7J7vRuB9i6/?img_index=1">
+                <img src="/static/images/instagram footer 5.png" alt="instagram images" class="w-100">
               </a>
             </div>
             <div class="thumb hover-scale">
-              <a href="#">
-                <img src="/static/images/portfolio/image-6.jpg" alt="instagram images" class="w-100">
+              <a href="https://www.instagram.com/p/C7J-UcShw_f/">
+                <img src="/static/images/instagram footer 6.png" alt="instagram images" class="w-100">
               </a>
             </div>
           </div>
@@ -580,6 +597,7 @@
             }, 2000)
 
           }
+
 
           } else {
             console.log(response.message);
@@ -794,6 +812,12 @@
       //});
   });
   
+
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+
   </script>
   {% block script %}
 

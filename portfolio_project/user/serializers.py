@@ -12,7 +12,9 @@ class UserSerializer(serializers.ModelSerializer):
             "profile_picture",
             "user_uuid",
             'email',
+            "phone",
             'is_verified',
+            "country",
             'otp'
         ]
         
@@ -20,6 +22,11 @@ class UserSerializer(serializers.ModelSerializer):
         email=attrs.get("email")
         username=attrs.get("username")
         
+        if not(username):
+            return serializers.ValidationError("Username is required")
+        
+        if not(email):
+            return serializers.ValidationError("Email address is required")
             
         if self.instance:
             user_username_instanse=User.objects.filter(username=username,is_verified=True).exclude(id=self.instance.id)

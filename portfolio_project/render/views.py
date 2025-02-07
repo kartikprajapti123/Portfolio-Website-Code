@@ -51,3 +51,8 @@ def profile_edit(request):
    
 def video_call(request,link):
     return render(request,"video-call.html")
+
+
+
+def profile(request):
+    return render(request,"profile.html")

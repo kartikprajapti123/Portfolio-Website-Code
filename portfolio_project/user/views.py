@@ -131,6 +131,13 @@ class UserViewSet(ModelViewSet):
             return Response({"success": False,"message": "Something Went wrong"}, status=status.HTTP_200_OK)
             
             
+    # @action(detail=False, methods=["GET"], url_path="get-user-images")
+    # def get_user_images(self, request, *args, **kwargs):
+        # images = User.objects.all() 
+        # serializer = UserSerializer(images, many=True)
+        # return Response({"success": True, "data": serializer.data}, status=status.HTTP_200_OK)
+
+        
 class RegisterViewSet(ModelViewSet):
     queryset=User.objects.filter(deleted=0)
     serializer_class=RegisterSerializer

@@ -4900,15 +4900,15 @@ a.smllbtnn {
 
 
 .headers_margin{
-    margin-top:100px;
-    margin-bottom:50px; 
+    margin-top:100px !important;
+    margin-bottom:50px !important; 
 
 
 }
 @media (max-width: 991px) {
     .headers_margin{
-        margin-top:50px;
-        margin-bottom:20px; 
+        margin-top:50px !important;
+        margin-bottom:20px !important; 
     }
     
 }

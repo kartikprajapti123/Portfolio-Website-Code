@@ -194,7 +194,7 @@
               <a class="nav-link " href="#" id="UserProfileDropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                  style="display: flex; align-items: center;    padding: 1px;">
                 <img src="/static/images/user-profile.png"
-                  style="width: 53px; padding: 0px; margin: 0px; margin-right: 5px;">
+                  style="width: 53px; padding: 0px; margin: 0px; margin-right: 5px;border-radius: 50%;" id="base_page_profile_image">
               </a>
               <div class="dropdown-menu animate " aria-labelledby="UserProfileDropdown"
                 style="min-width: 200px;">
@@ -547,6 +547,8 @@
       Array.from(document.getElementsByClassName("unauthenticated")).forEach((e) => {
         e.style.display = "none";
       });
+
+      fetch_user_profile()
     } else {
       // Show unauthenticated elements and hide authenticated ones
       Array.from(document.getElementsByClassName("unauthenticated")).forEach((e) => {
@@ -819,6 +821,25 @@
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl);
   });
+
+
+  function fetch_user_profile(){
+    fetch(`${window.location.origin}/api/user/get_single_user_details/`,{
+      "method":"GET",
+      "headers":{
+        "Authorization":`Bearer ${authenticated}`
+      }
+    }).then((response)=>{
+      return response.json()
+    }).then((response)=>{
+      if (response.success){
+        document.getElementById("base_page_profile_image").src=response.data.profile_picture
+      }
+      else{
+        console.log(response)
+      }
+    })
+  }
 
   </script>
   {% block script %}

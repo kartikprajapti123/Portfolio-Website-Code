@@ -517,6 +517,7 @@
                 message.innerHTML = "Profile Updated Successfully!";
 
                 get_profile()
+                fetch_user_profile()
             } else {
                 let errorMessage = response.message?.email?.[0] ||
                     response.message?.username?.[0] ||

@@ -15,7 +15,7 @@ from rest_framework.decorators import action
 
 
 class ProjectViewSet(ModelViewSet):
-    queryset = Project.objects.filter(deleted=0)
+    queryset = Project.objects.filter(deleted=0).order_by("-id")
     serializer_class = ProjectSerializer
     pagination_class = mypagination
     # permission_classes = [IsAuthenticated]

@@ -109,7 +109,7 @@
                 </ul>
               </div>
               <div class="bread-title">
-                <h2>Our Portfolio</h2>
+                <h2 id="project-details-heading">Our Portfolio</h2>
               </div>
             </div>
           </div>
@@ -213,8 +213,11 @@ function fetch_project_detail(){
 		project_image.src=Response.data.project_image
 		project_video.src=Response.data.project_video
 		project_video.poster=Response.data.project_thumbnail
+		document.getElementById("project-details-heading").innerHTML = Response.data.project_name;
 		if (Response.data.external_link == "nothing") {
 			// Set the link to an empty placeholder
+			
+
 			document.getElementById("project_external_link").src = "#";
 			document.getElementById("project_external_link").target = "";
 		

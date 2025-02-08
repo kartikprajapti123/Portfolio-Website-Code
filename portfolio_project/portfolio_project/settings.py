@@ -28,8 +28,13 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://kartikprajapati.com",
+    "https://www.kartikprajapati.com",
+]
 
+ALLOWED_HOSTS = ["localhost:8000","localhost","kartikprajapati.com",
+    "www.kartikprajapati.com",]
 
 # Application definition
 

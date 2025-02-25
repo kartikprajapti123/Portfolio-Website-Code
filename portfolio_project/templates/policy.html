@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Policy - Freelance Web Developer{% endblock title %}
+{% block style %}
+<style>
+    body {
+        background-color: #0f0f0f;
+        color: #e0e0e0;
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+    }
+    .policy-container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 30px;
+        background: #181818;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    .policy-section {
+        margin-bottom: 25px;
+        padding: 20px;
+        border-left: 4px solid #007bff;
+        background: #202020;
+        border-radius: 6px;
+    }
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    h3 {
+        font-size: 22px;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 16px;
+        color: #d1d1d1;
+    }
+    #backToTop {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 18px;
+        background: #007bff;
+        color: #fff;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background 0.3s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    }
+    #backToTop:hover {
+        background: #0056b3;
+    }
+</style>
+{% endblock style %}
+{% block body %}
+
+<section class="policy-container">
+    <h2> Policy</h2>
+
+    <div class="policy-section">
+        <h3>1. Payment Terms</h3>
+        <p>All payments must be made according to the agreed milestones. A **50% upfront payment** is required before any work begins.</p>
+    </div>
+
+    <div class="policy-section">
+        <h3>2. Refund Policy</h3>
+        <p>Refunds are **not available** for completed milestones. Partial refunds may be considered only under **exceptional circumstances**.</p>
+    </div>
+
+    <div class="policy-section">
+        <h3>3. Revisions</h3>
+        <p>Clients are entitled to **two rounds of free revisions**. Additional revisions will be charged based on complexity.</p>
+    </div>
+
+    <div class="policy-section">
+        <h3>4. Intellectual Property</h3>
+        <p>Upon **full payment**, the client gains **full ownership** of the final product. However, the developer retains the right to **showcase the project in their portfolio**.</p>
+    </div>
+
+    <div class="policy-section">
+        <h3>5. Project Timeline</h3>
+        <p>Timelines are estimated based on project complexity. **Delays caused by the client** (e.g., late feedback, content submission) will impact the deadline.</p>
+    </div>
+
+    <div class="policy-section">
+        <h3>6. Confidentiality</h3>
+        <p>All client information and project details will remain **strictly confidential** and will **not** be shared with third parties.</p>
+    </div>
+
+    <button id="backToTop">Back to Top</button>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let backToTopBtn = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 250) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        });
+
+        backToTopBtn.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+</script>
+
+{% endblock body %}
+{% block script %}
+{% endblock script %}

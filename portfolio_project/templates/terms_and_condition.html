@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Terms & Conditions - Freelance Web Developer{% endblock title %}
+{% block style %}
+<style>
+    body {
+        background-color: #0f0f0f;
+        color: #e0e0e0;
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+    }
+    .terms-container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 30px;
+        background: #181818;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    .terms-section {
+        margin-bottom: 25px;
+        padding: 20px;
+        border-left: 4px solid #007bff;
+        background: #202020;
+        border-radius: 6px;
+    }
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    h3 {
+        font-size: 22px;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 16px;
+        color: #d1d1d1;
+    }
+    #backToTop {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 18px;
+        background: #007bff;
+        color: #fff;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background 0.3s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    }
+    #backToTop:hover {
+        background: #0056b3;
+    }
+</style>
+{% endblock style %}
+{% block body %}
+
+<section class="terms-container">
+    <h2>Terms & Conditions</h2>
+
+    <div class="terms-section">
+        <h3>1. Acceptance of Terms</h3>
+        <p>By hiring our services, you agree to these terms and conditions. Any violation may result in service termination.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3>2. Service Agreement</h3>
+        <p>A project agreement must be signed before work begins, specifying scope, deadlines, and payment structure.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3>3. Payment & Invoicing</h3>
+        <p>Invoices must be paid within the agreed timeframe. **Late payments may incur additional charges**.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3>4. Client Responsibilities</h3>
+        <p>The client must provide necessary content, feedback, and approvals in a timely manner to avoid delays.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3>5. Warranty & Support</h3>
+        <p>All projects come with **15 days of free bug fixes**. Any additional support will be charged separately.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3>6. Liability Limitations</h3>
+        <p>The developer is not responsible for damages arising from misuse, security breaches, or third-party modifications.</p>
+    </div>
+
+    <button id="backToTop">Back to Top</button>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let backToTopBtn = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 250) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        });
+
+        backToTopBtn.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+</script>
+
+{% endblock body %}
+{% block script %}
+{% endblock script %}

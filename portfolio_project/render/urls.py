@@ -17,6 +17,9 @@ urlpatterns = [
     path("why-me/",views.why_me,name="why_me"),
     path("video-call/<str:link>/",views.video_call,name="video_call"),
     path("profile/",views.profile,name="profile"),
+    path("policy/",views.policy,name="policy"),
+    path("terms_and_condition/",views.terms_and_condition,name="policy"),
+    
     
     
     

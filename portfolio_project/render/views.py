@@ -56,3 +56,10 @@ def video_call(request,link):
 
 def profile(request):
     return render(request,"profile.html")
+
+
+def policy(request):
+    return render(request,"policy.html")
+
+def terms_and_condition(request):
+    return render(request,"terms_and_condition.html")

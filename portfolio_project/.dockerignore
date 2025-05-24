@@ -15,3 +15,4 @@ node_modules/
 
 # Include .env if necessary for your Docker container setup (ensure it's not ignored)
 /.env
+

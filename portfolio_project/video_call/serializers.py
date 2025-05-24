@@ -19,9 +19,6 @@ class RoomSerializer(ModelSerializer):
         ]
         
     def create(self, validated_data):
-        print(validated_data)
-        
-        
         main_uuid=uuid4()
         validated_data["uuid"]=main_uuid
         subject=f"A New Video Call Room Created by ${validated_data['user_username']} "

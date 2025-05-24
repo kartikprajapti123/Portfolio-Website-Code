@@ -33,8 +33,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://www.kartikprajapati.com",
 ]
 
-ALLOWED_HOSTS = ["localhost:8000","localhost","kartikprajapati.com",
-    "www.kartikprajapati.com",]
+ALLOWED_HOSTS = ["localhost:8000","localhost","kartikprajapati.in",
+    "www.kartikprajapati.in",]
 
 # Application definition
 

@@ -29,8 +29,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config("DEBUG")
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://kartikprajapati.com",
-    "https://www.kartikprajapati.com",
+    "https://kartikprajapati.in",
+    "https://www.kartikprajapati.in",
 ]
 
 ALLOWED_HOSTS = ["localhost:8000","localhost","kartikprajapati.in",

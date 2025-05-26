@@ -849,7 +849,7 @@
       return response.json()
     }).then((response)=>{
       if (response.success){
-        document.getElementById("base_page_profile_image").src=response.data.profile_picture
+        document.getElementById("base_page_profile_image").src="/static/images/user-profile.png"
       }
       else{
         console.log(response)

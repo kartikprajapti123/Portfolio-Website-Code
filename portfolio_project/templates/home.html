@@ -429,9 +429,9 @@
           // Define image width and height based on column size
           let imageStyle = '';
           if (columnSize.includes('col-sm-8')) {
-            imageStyle = 'width: 770px;height: 380px;';
+            imageStyle = 'width: 770px;height: 380px;object-fit:cover;';
           } else if (columnSize.includes('col-sm-4')) {
-            imageStyle = 'width: 370px; height: 380px;';
+            imageStyle = 'width: 370px; height: 380px;object-fit:cover;';
           }
 
           str += `
